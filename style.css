@@ -1,0 +1,201 @@
+/* ===== Global Reset & Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  /* Modern dark gradient */
+  background: linear-gradient(135deg, #0d0f1a 0%, #12141f 40%, #1a1c2b 100%);
+  color: white;
+  padding: 3rem;
+  position: relative;
+  max-height: 110vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* ===== Header ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.05);  /* subtle glassy tint */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 3;
+}
+
+/* ===== Logo ===== */
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #4fc3f7, #00e5ff, #7c4dff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 12px rgba(0, 229, 255, 0.1);
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.03);
+  text-shadow: 0 0 18px rgba(124, 77, 255, 0.4);
+}
+
+/* ===== Contact Button ===== */
+.contact-btn {
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  background-color: rgba(143, 143, 143, 0.2);
+  border: 1px solid rgba(103, 103, 103, 0.5);
+  border-radius: 50px;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+a{
+  text-decoration: none;
+  color: ivory;
+}
+
+.contact-btn:hover {
+  background-color: #7b68ab37;
+}
+
+/* ===== Main Section ===== */
+main {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 85vh;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== Title Section ===== */
+.title-section {
+  margin-top: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+main h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  line-height: 1;
+  background-image: linear-gradient(rgb(133, 133, 133), rgb(255, 255, 255));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.location p {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  background-image: linear-gradient(to right, #76b0ab, #ffffff, #842626);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ===== Scroll Indicator ===== */
+.scroll-down {
+  height: 5rem;
+  width: 2rem;
+  position: absolute;
+  right: 2%;
+  bottom: 5%;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  z-index: 3;
+}
+
+.scroll-down::before,
+.scroll-down::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 2px solid lightgray;
+  border-top: transparent;
+  border-left: transparent;
+  animation: scroll-down 3s ease-in-out infinite;
+}
+
+.scroll-down::before {
+  animation-delay: 0.5s;
+  top: 30%;
+}
+
+@keyframes scroll-down {
+  0% {
+    opacity: 0;
+  }
+  38%, 60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: 90%;
+  }
+}
+
+/* ===== 3D Planet (Spline Model) ===== */
+/* No changes applied to the 3D model as requested */
+.planet-3d {
+  position: absolute;
+  width: 100%;
+  height: 150%;
+  top:-30% ;
+  right: 5%;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  body {
+    padding: 2rem;
+  }
+  
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .title-section {
+    margin-top: 1.5rem;
+  }
+  
+  main h1 {
+    font-size: 3rem;
+  }
+  
+  .location p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+  
+  .scroll-down {
+    height: 4rem;
+    width: 1.5rem;
+  }
+}
